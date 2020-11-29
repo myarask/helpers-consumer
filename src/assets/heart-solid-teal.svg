@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="27px" viewBox="0 0 30 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>icons / heart solid</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M29.8683049,5.0629464 C26.7158088,2.33377556 22.0273336,2.82467567 19.1337103,5.85773704 L18.0004225,7.04407897 L16.8671346,5.85773704 C13.979264,2.82467567 9.28503616,2.33377556 6.13254,5.0629464 C2.51982541,8.1953566 2.32998531,13.8173316 5.5630197,17.212724 L16.6945527,28.8891337 C17.413644,29.643016 18.5814482,29.643016 19.3005395,28.8891337 L30.4320725,17.212724 C33.6708596,13.8173316 33.4810195,8.1953566 29.8683049,5.0629464 Z" id="path-1"></path>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Helper-/-profile-Copy" transform="translate(-67.000000, -289.000000)">
+            <g id="Group" transform="translate(64.000000, 286.000000)">
+                <g id="icons-/-heart-solid">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#12B3B3" fill-rule="nonzero" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
