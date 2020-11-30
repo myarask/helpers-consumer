@@ -8,9 +8,9 @@ import {
   Typography,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useIdentity } from '../providers/Identity';
 import paths from '../constants/paths';
-import { useAuth0 } from '../react-auth0-spa';
 import TopNav from './TopNav';
 import Logo from './Logo';
 import NavItem from './NavItem';

@@ -6,11 +6,11 @@ import Unauthorized from 'pages/Unauthorized';
 import history from 'utils/history';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { useAuth0 } from '@auth0/auth0-react';
 import Routes from './Routes';
 import IdentityProvider from './providers/Identity';
 import ActiveVisitsProvider from './providers/ActiveVisits';
 import paths from './constants/paths';
-import { useAuth0 } from './react-auth0-spa';
 
 // TODO: put key in .env
 const stripe = loadStripe('pk_test_06kE5COL0MxINnXj0T7yA8RK00oVjpGWXp');
@@ -19,7 +19,7 @@ const App = () => {
   const auth0 = useAuth0();
   const hasError = window.location.search.includes('error=');
 
-  if (auth0.loading) {
+  if (auth0.isLoading) {
     return (
       <ThemeProvider>
         <LinearProgress />

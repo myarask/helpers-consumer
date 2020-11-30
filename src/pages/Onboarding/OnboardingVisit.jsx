@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Box, Button } from '@material-ui/core';
-import { useAuth0 } from '../../react-auth0-spa';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const OnboardingVisit = () => {
   const { logout } = useAuth0();
