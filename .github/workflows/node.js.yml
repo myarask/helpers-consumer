@@ -43,6 +43,7 @@ jobs:
     - name: Generate deployment package
       run: zip -r deploy.zip . -x ".git/*" ".github/*"
 
+
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v10
       with:
