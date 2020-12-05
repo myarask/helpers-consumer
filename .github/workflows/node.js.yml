@@ -51,5 +51,5 @@ jobs:
         application_name: helpers-consumer-test
         environment_name: HelpersConsumerTestEnv
         version_label: "version-${{ steps.format-time.outputs.replaced }}"
-        region: ap-south-1
+        region: ca-central-1
         deployment_package: deploy.zip
