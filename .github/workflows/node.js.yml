@@ -45,6 +45,7 @@ jobs:
         REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
         REACT_APP_AUTH_CLIENT_ID: ${{ secrets.REACT_APP_AUTH_CLIENT_ID }}
         REACT_APP_AUTH_AUDIENCE: ${{ secrets.REACT_APP_AUTH_AUDIENCE }}
+        REACT_APP_STRIPE_KEY: ${{ secrets.REACT_APP_STRIPE_KEY }}
       run: npm run build
 
     - name: Generate deployment package
