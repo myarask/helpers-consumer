@@ -9,7 +9,6 @@ const { makeExecutableSchema } = require('graphql-tools');
 
 const makeModels = require('helpers-database/models/_make');
 const createAuth0 = require('./createAuth0');
-const authConfig = require('../src/auth_config.json');
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 const directives = require('./directives');
@@ -21,7 +20,7 @@ const app = express();
 const port = process.env.API_PORT || 3005; // TODO: See if this env var can be removed
 const origin = process.env.REACT_APP_APP_URL || 'http://localhost:3004';
 
-if (!authConfig.domain || !authConfig.audience) {
+if (!process.env.AUTH_DOMAIN || !process.env.AUTH_AUDIENCE) {
   throw new Error(
     'Please make sure that auth_config.json is in place and populated'
   );
@@ -54,11 +53,11 @@ const init = async () => {
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
-        jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`,
+        jwksUri: `https://${process.env.AUTH_DOMAIN}/.well-known/jwks.json`,
       }),
 
-      audience: authConfig.audience,
-      issuer: `https://${authConfig.domain}/`,
+      audience: process.env.AUTH_AUDIENCE,
+      issuer: `https://${process.env.AUTH_DOMAIN}/`,
       algorithm: ['RS256'],
     })
   );
