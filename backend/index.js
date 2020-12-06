@@ -20,7 +20,10 @@ const app = express();
 const port = process.env.API_PORT || 3005; // TODO: See if this env var can be removed
 const origin = process.env.REACT_APP_APP_URL || 'http://localhost:3004';
 
-if (!process.env.AUTH_DOMAIN || !process.env.AUTH_AUDIENCE) {
+if (
+  !process.env.REACT_APP_AUTH_DOMAIN ||
+  !process.env.REACT_APP_AUTH_AUDIENCE
+) {
   throw new Error(
     'Please make sure that auth_config.json is in place and populated'
   );
@@ -53,11 +56,11 @@ const init = async () => {
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
-        jwksUri: `https://${process.env.AUTH_DOMAIN}/.well-known/jwks.json`,
+        jwksUri: `https://${process.env.REACT_APP_AUTH_DOMAIN}/.well-known/jwks.json`,
       }),
 
-      audience: process.env.AUTH_AUDIENCE,
-      issuer: `https://${process.env.AUTH_DOMAIN}/`,
+      audience: process.env.REACT_APP_AUTH_AUDIENCE,
+      issuer: `https://${process.env.REACT_APP_AUTH_DOMAIN}/`,
       algorithm: ['RS256'],
     })
   );
