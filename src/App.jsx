@@ -12,8 +12,7 @@ import IdentityProvider from './providers/Identity';
 import ActiveVisitsProvider from './providers/ActiveVisits';
 import paths from './constants/paths';
 
-// TODO: put key in .env
-const stripe = loadStripe('pk_test_06kE5COL0MxINnXj0T7yA8RK00oVjpGWXp');
+const stripe = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 
 const App = () => {
   const auth0 = useAuth0();
