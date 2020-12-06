@@ -4,18 +4,18 @@ const axios = require('axios');
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-const url = 'https://helpers-admin-test.auth0.com/oauth/token';
-
 const payload = {
-  client_id: '1ATPnuMwdY3W6wUnedjLMIcJN1K2q77y',
+  client_id: process.env.BACKEND_AUTH0_CLIENT_ID,
   client_secret: process.env.BACKEND_AUTH0_CLIENT_SECRET,
-  audience: 'https://helpers-admin-test.auth0.com/api/v2/',
+  audience: process.env.BACKEND_AUTH0_AUDIENCE,
   grant_type: 'client_credentials',
 };
 
 module.exports = async () => {
-  const { data } = await axios.post(url, payload).catch(console.error);
-  const baseURL = 'https://helpers-admin-test.auth0.com/api/v2/';
+  const { data } = await axios
+    .post(process.env.BACKEND_AUTH0_TOKEN_URL, payload)
+    .catch(console.error);
+  const baseURL = process.env.BACKEND_AUTH0_API_URL;
   const auth0 = axios.create({ baseURL });
 
   auth0.interceptors.request.use((options) => ({
