@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm install npm-run-all && npm-run-all  --parallel server api-server",
+    "start": "npm install -g npm-run-all && npm-run-all  --parallel server api-server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
