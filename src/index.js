@@ -19,8 +19,7 @@ const AuthorizedApolloProvider = ({ children }) => {
 
   const request = async (operation) => {
     const token = await getAccessTokenSilently({
-      // TODO: Get from env vars
-      audience: 'helpers-consumer-test',
+      audience: process.env.REACT_APP_AUTH_AUDIENCE,
     });
 
     operation.setContext({
@@ -81,8 +80,8 @@ const AuthorizedApolloProvider = ({ children }) => {
 
 ReactDOM.render(
   <Auth0Provider
-    domain="helpers-admin-test.auth0.com" // TODO: Env vars
-    clientId="hYvnN8Ab9aG5JQ2fAHFo1aull85E02g8"
+    domain={process.env.REACT_APP_AUTH_DOMAIN}
+    clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
     redirectUri={window.location.origin}
   >
     <AuthorizedApolloProvider>
