@@ -3,6 +3,10 @@ on:
   push:
     branches:
     - release-test
+env:
+  REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
+  REACT_APP_AUTH_CLIENT_ID: ${{ secrets.REACT_APP_AUTH_CLIENT_ID }}
+  REACT_APP_AUTH_AUDIENCE: ${{ secrets.REACT_APP_AUTH_AUDIENCE }}
 
 jobs:
   build:
