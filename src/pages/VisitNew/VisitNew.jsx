@@ -72,8 +72,7 @@ const VisitNew = () => {
   const [covid2, setCovid2] = useState('');
   const [covid3, setCovid3] = useState('');
   const { activeVisits, isLoadingActiveVisits } = useActiveVisits();
-  const clientName = myUser.clients.find((client) => client.id === clientId)
-    .fullName;
+  const client = myUser.clients.find(({ id }) => id === clientId);
 
   const [draftVisit] = useMutation(DRAFT_VISIT);
 
@@ -202,8 +201,8 @@ const VisitNew = () => {
               </Typography>
               <Typography gutterBottom>
                 <b>
-                  1. Does {clientName} have any of the following new or
-                  worsening symptoms or signs?
+                  1. Does {(client || {}).fullName} have any of the following
+                  new or worsening symptoms or signs?
                 </b>
               </Typography>
               <Typography>- Fever or chills</Typography>
@@ -248,8 +247,8 @@ const VisitNew = () => {
 
               <Typography gutterBottom>
                 <b>
-                  2. Has {clientName} travelled outside of Canada in the past 14
-                  days?
+                  2. Has {(client || {}).fullName} travelled outside of Canada
+                  in the past 14 days?
                 </b>
               </Typography>
 
@@ -272,8 +271,8 @@ const VisitNew = () => {
 
               <Typography gutterBottom>
                 <b>
-                  3. Has {clientName} had close contact with a confirmed or
-                  probable case of COVID-19?
+                  3. Has {(client || {}).fullName} had close contact with a
+                  confirmed or probable case of COVID-19?
                 </b>
               </Typography>
 
