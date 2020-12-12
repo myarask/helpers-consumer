@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm-run-all --parallel server api-server",
+    "start": "./node_modules/npm-run-all/bin/npm-run-all/index.js --parallel server api-server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
