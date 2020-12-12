@@ -1,8 +1,9 @@
-name: Deploy Testing
+name: Deploy
 on:
   push:
     branches:
     - release-test
+    - release-prod
 
 jobs:
   build:
@@ -40,7 +41,8 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    - name: Building
+    - name: Building for Test environment
+      if: github.ref == 'refs/heads/release-test'
       env:
         REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
         REACT_APP_AUTH_CLIENT_ID: ${{ secrets.REACT_APP_AUTH_CLIENT_ID }}
@@ -48,10 +50,20 @@ jobs:
         REACT_APP_STRIPE_KEY: ${{ secrets.REACT_APP_STRIPE_KEY }}
       run: npm run build
 
+    - name: Building for Production environment
+      if: github.ref == 'refs/heads/release-prod'
+      env:
+        REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN_PROD }}
+        REACT_APP_AUTH_CLIENT_ID: ${{ secrets.REACT_APP_AUTH_CLIENT_ID_PROD }}
+        REACT_APP_AUTH_AUDIENCE: ${{ secrets.REACT_APP_AUTH_AUDIENCE_PROD }}
+        REACT_APP_STRIPE_KEY: ${{ secrets.REACT_APP_STRIPE_KEY_PROD }}
+      run: npm run build
+
     - name: Generate deployment package
       run: zip -r deploy.zip . -x ".git/*" ".github/*" "src/*" "public/*"
 
-    - name: Deploy to EB
+    - name: Deploy to Test EB environment
+      if: github.ref == 'refs/heads/release-test'
       uses: einaregilsson/beanstalk-deploy@v14
       with:
         wait_for_environment_recovery: 100
@@ -59,6 +71,19 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: helpers-consumer
         environment_name: HelpersConsumerTest
+        version_label: "version-${{ steps.format-time.outputs.replaced }}"
+        region: ca-central-1
+        deployment_package: deploy.zip
+
+    - name: Deploy to Prod EB environment
+      if: github.ref == 'refs/heads/release-prod'
+      uses: einaregilsson/beanstalk-deploy@v14
+      with:
+        wait_for_environment_recovery: 100
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: helpers-consumer
+        environment_name: HelpersConsumerProd
         version_label: "version-${{ steps.format-time.outputs.replaced }}"
         region: ca-central-1
         deployment_package: deploy.zip
