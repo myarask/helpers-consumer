@@ -15,7 +15,7 @@ module.exports = async () => {
   const { data } = await axios
     .post(process.env.BACKEND_AUTH0_TOKEN_URL, payload)
     .catch(console.error);
-  const baseURL = process.env.BACKEND_AUTH0_API_URL;
+  const baseURL = process.env.BACKEND_AUTH0_AUDIENCE;
   const auth0 = axios.create({ baseURL });
 
   auth0.interceptors.request.use((options) => ({
