@@ -1,11 +1,29 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Helpers",
+  "name": "Helpers: Home Care on Demand",
+  "categories": ["home care", "personnal care"],
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "1080×1920",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshot2.png",
+      "sizes": "1080×1920",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshot3.png",
+      "sizes": "1080×1920",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
