@@ -10,11 +10,11 @@ const { join } = require('path');
 
 const app = express();
 
-const port = process.env.PORT || 3004;
+const port = process.env.PORT || 3000;
 
 app.use(morgan('dev'));
 app.use(helmet());
-app.use('/api', createProxyMiddleware({ target: 'http://localhost:3005' }));
+app.use('/api', createProxyMiddleware({ target: 'http://localhost:3001' }));
 app.use(express.static(join(__dirname, 'build')));
 app.use('*', express.static(join(__dirname, 'build')));
 

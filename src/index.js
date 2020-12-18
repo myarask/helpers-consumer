@@ -67,7 +67,7 @@ const AuthorizedApolloProvider = ({ children }) => {
       new HttpLink({
         uri:
           process.env.NODE_ENV === 'development'
-            ? 'http://localhost:3005/api/graphql'
+            ? 'http://localhost:3001/api/graphql'
             : '/api/graphql',
         credentials: 'same-origin',
       }),
