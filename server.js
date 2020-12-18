@@ -14,7 +14,10 @@ const port = process.env.PORT || 3004;
 
 app.use(morgan('dev'));
 app.use(helmet());
-app.use('/api', createProxyMiddleware({ target: 'http://localhost:3005' }));
+app.use(
+  '/api',
+  createProxyMiddleware({ target: 'http://localhost:3005', changeOrigin: true })
+);
 app.use(express.static(join(__dirname, 'build')));
 app.use('*', express.static(join(__dirname, 'build')));
 
