@@ -17,8 +17,8 @@ const config = require('./config');
 const models = makeModels(config);
 const app = express();
 
-const port = process.env.API_PORT || 3005; // TODO: See if this env var can be removed
-const origin = process.env.REACT_APP_APP_URL || 'http://localhost:3004';
+const port = process.env.API_PORT || 3001; // TODO: See if this env var can be removed
+const origin = process.env.REACT_APP_APP_URL || 'http://localhost:3000';
 
 if (
   !process.env.REACT_APP_AUTH_DOMAIN ||
