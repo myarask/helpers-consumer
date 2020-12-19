@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ca.gethelpers.app.twa",
+      "sha256_cert_fingerprints": [
+        "7A:D0:04:33:5E:91:3F:1C:5E:65:38:4C:52:83:8B:9B:47:40:1E:ED:87:96:79:71:C3:27:4A:0A:62:81:D7:38"
+      ]
+    }
+  }
+]
