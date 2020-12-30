@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "ca.gethelpers.app.twa",
       "sha256_cert_fingerprints": [
-        "7A:D0:04:33:5E:91:3F:1C:5E:65:38:4C:52:83:8B:9B:47:40:1E:ED:87:96:79:71:C3:27:4A:0A:62:81:D7:38"
+        "7A:D0:04:33:5E:91:3F:1C:5E:65:38:4C:52:83:8B:9B:47:40:1E:ED:87:96:79:71:C3:27:4A:0A:62:81:D7:38",
+        "58:ED:A7:4C:F1:01:EF:F1:5C:DD:00:2B:03:73:3C:EA:F4:36:C7:5D:89:CE:48:3D:26:5B:4B:78:25:0A:4B:18"
       ]
     }
   }
