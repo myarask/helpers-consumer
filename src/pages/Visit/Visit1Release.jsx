@@ -10,8 +10,7 @@ import {
 } from '@material-ui/core';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import gql from 'graphql-tag';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, gql } from '@apollo/client';
 import { useIdentity } from 'providers/Identity';
 import { useActiveVisits } from '../../providers/ActiveVisits';
 import paths from '../../constants/paths';

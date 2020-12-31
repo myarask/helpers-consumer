@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Box, InputLabel, LinearProgress } from '@material-ui/core';
-import gql from 'graphql-tag';
 import {
   useElements,
   useStripe,
@@ -9,11 +8,11 @@ import {
   CardCvcElement,
 } from '@stripe/react-stripe-js';
 import { makeStyles } from '@material-ui/core/styles';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, gql } from '@apollo/client';
 import { useIdentity } from 'providers/Identity';
-import Stepper from './Stepper';
 import visaCard from 'assets/visa.svg';
 import masterCard from 'assets/master.svg';
+import Stepper from './Stepper';
 
 const useStyles = makeStyles((theme) => ({
   stripeElementWrapper: {

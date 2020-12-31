@@ -4,8 +4,7 @@ import { TextField } from 'formik-material-ui';
 import { Formik, Field, Form } from 'formik';
 import { phoneRegExp } from 'utils/regexs';
 import * as Yup from 'yup';
-import gql from 'graphql-tag';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, gql } from '@apollo/client';
 import { useIdentity } from 'providers/Identity';
 
 const validationSchema = Yup.object().shape({

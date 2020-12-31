@@ -18,8 +18,7 @@ import {
 } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import gql from 'graphql-tag';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import { useActiveVisits } from '../../providers/ActiveVisits';
 import Service from './Service';
 import { BackTopNav } from '../../components';
