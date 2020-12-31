@@ -71,7 +71,9 @@ const VisitNew = () => {
   const [covid2, setCovid2] = useState('');
   const [covid3, setCovid3] = useState('');
   const { activeVisits, isLoadingActiveVisits } = useActiveVisits();
-  const client = myUser.clients.find(({ id }) => id === clientId);
+  const client = ((myUser || {}).clients || []).find(
+    ({ id }) => id === clientId
+  );
 
   const [draftVisit] = useMutation(DRAFT_VISIT);
 
