@@ -1,9 +1,8 @@
 import React from 'react';
 import { LinearProgress, Box, Typography } from '@material-ui/core';
-import gql from 'graphql-tag';
 import { TextField } from 'formik-material-ui';
 import { Formik, Field, Form } from 'formik';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, gql } from '@apollo/client';
 import * as Yup from 'yup';
 import { phoneRegExp } from 'utils/regexs';
 import { useIdentity } from 'providers/Identity';

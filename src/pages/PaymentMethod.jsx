@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useHistory, generatePath } from 'react-router-dom';
 import { Box, Button, Typography } from '@material-ui/core';
-import gql from 'graphql-tag';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, gql } from '@apollo/client';
 import { useIdentity } from 'providers/Identity';
 import {
   useElements,

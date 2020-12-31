@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, Switch, Route } from 'react-router-dom';
-import gql from 'graphql-tag';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, gql } from '@apollo/client';
 import { LinearProgress } from '@material-ui/core';
 import VisitRelease from './Visit1Release';
 import VisitMatch from './Visit2Match';
