@@ -52,26 +52,34 @@ const init = async () => {
   app.use(bodyParser.json());
 
   // Hooks
+
+  // Hook for new user created through auth0
   app.post('/api/users', async (req, res) => {
-    // const { auth0Id } = req.params;
-
+    // When a new use is created in auth0, we want a user record to
+    // be created in the Helpers database
     try {
-      // const user = await models.User.findOne({
-      //   where: {
-      //     auth0Id,
-      //   },
-      //   include: [models.InternalUser, models.AgencyUser],
-      // });
-      // console.log(req);
+      const { body } = req;
+      const { user, context } = body;
 
-      res.send({
-        // body: req.body,
-        user: req.body.user,
-        context: req.body.context,
-        // req: req,
-        // admin: !!user.InternalUser,
-        // agency: !!(user.AgencyUsers || []).length,
+      if (
+        ![
+          'con_Tni9LLkPJfaCuQDG', // Username-Password in test env
+          'con_yeBwfEeh94N9WvOF', // Username-Password in prod env
+        ].includes(context.connection.id)
+      ) {
+        res.send({ message: 'The new user must use a whitelisted connection' });
+      }
+
+      if (!user.id) {
+        res.send({ message: 'Missing user id' });
+      }
+
+      await models.User.create({
+        email: user.email,
+        auth0Id: user.id,
       });
+
+      res.send({ message: 'Success' });
     } catch (e) {
       console.error(e);
     }
