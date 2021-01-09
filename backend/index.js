@@ -76,7 +76,7 @@ const init = async () => {
 
       await models.User.create({
         email: user.email,
-        auth0Id: user.id,
+        auth0Id: `auth0|${user.id}`,
       });
 
       res.send({ message: 'Success' });
