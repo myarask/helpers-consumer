@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -45,6 +46,35 @@ const init = async () => {
       user: req.user,
       auth0,
     }),
+  });
+
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+
+  // Hooks
+  app.post('/api/users', async (req, res) => {
+    // const { auth0Id } = req.params;
+
+    try {
+      // const user = await models.User.findOne({
+      //   where: {
+      //     auth0Id,
+      //   },
+      //   include: [models.InternalUser, models.AgencyUser],
+      // });
+      // console.log(req);
+
+      res.send({
+        // body: req.body,
+        user: req.body.user,
+        context: req.body.context,
+        // req: req,
+        // admin: !!user.InternalUser,
+        // agency: !!(user.AgencyUsers || []).length,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   });
 
   app.use(morgan('dev'));
