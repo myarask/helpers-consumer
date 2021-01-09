@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -45,6 +46,43 @@ const init = async () => {
       user: req.user,
       auth0,
     }),
+  });
+
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+
+  // Hooks
+
+  // Hook for new user created through auth0
+  app.post('/api/users', async (req, res) => {
+    // When a new use is created in auth0, we want a user record to
+    // be created in the Helpers database
+    try {
+      const { body } = req;
+      const { user, context } = body;
+
+      if (
+        ![
+          'con_Tni9LLkPJfaCuQDG', // Username-Password in test env
+          'con_yeBwfEeh94N9WvOF', // Username-Password in prod env
+        ].includes(context.connection.id)
+      ) {
+        res.send({ message: 'The new user must use a whitelisted connection' });
+      }
+
+      if (!user.id) {
+        res.send({ message: 'Missing user id' });
+      }
+
+      await models.User.create({
+        email: user.email,
+        auth0Id: `auth0|${user.id}`,
+      });
+
+      res.send({ message: 'Success' });
+    } catch (e) {
+      console.error(e);
+    }
   });
 
   app.use(morgan('dev'));

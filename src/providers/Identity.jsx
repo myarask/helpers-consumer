@@ -23,7 +23,9 @@ const useIdentity = () => useContext(Identity);
 
 const IdentityProvider = ({ children }) => {
   const [myUser, setMyUser] = useState();
-  const { data, refetch, error } = useQuery(GET_DATA);
+  const { data, refetch, error } = useQuery(GET_DATA, {
+    fetchPolicy: 'network-only',
+  });
 
   useEffect(() => {
     if (!data) return;
