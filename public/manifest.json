@@ -7,22 +7,97 @@
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "icon-76.jpg",
+      "sizes": "76x76",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "icon-120.jpg",
+      "sizes": "120x120",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "icon-152.jpg",
+      "sizes": "152x152",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "icon-180.jpg",
+      "sizes": "180x180",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "icon-big.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-640x960.jpg",
+      "sizes": "640x960",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-640x1136.jpg",
+      "sizes": "640x1136",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-750x1334.jpg",
+      "sizes": "750x1334",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-1024x768.jpg",
+      "sizes": "1024x768",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-1242x2208.jpg",
+      "sizes": "1242x2208",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-2208x1242.jpg",
+      "sizes": "2208x1242",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-1536x2048.jpg",
+      "sizes": "1536x2048",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-2048x1536",
+      "sizes": "2048x1536",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-750x1334",
+      "sizes": "768x1024",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "launch-1024x768",
+      "sizes": "1024x768",
+      "type": "image/jpeg"
     }
   ],
   "screenshots": [
     {
       "src": "screenshot1.png",
-      "sizes": "1080×1920",
+      "sizes": "1080x1920",
       "type": "image/png"
     },
     {
       "src": "screenshot2.png",
-      "sizes": "1080×1920",
+      "sizes": "1080x1920",
       "type": "image/png"
     },
     {
       "src": "screenshot3.png",
-      "sizes": "1080×1920",
+      "sizes": "1080x1920",
       "type": "image/png"
     }
   ],
