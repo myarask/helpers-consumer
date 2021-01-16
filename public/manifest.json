@@ -69,17 +69,17 @@
       "type": "image/jpeg"
     },
     {
-      "src": "launch-2048x1536",
+      "src": "launch-2048x1536.png",
       "sizes": "2048x1536",
-      "type": "image/jpeg"
+      "type": "image/png"
     },
     {
-      "src": "launch-750x1334",
+      "src": "launch-750x1334.jpg",
       "sizes": "768x1024",
       "type": "image/jpeg"
     },
     {
-      "src": "launch-1024x768",
+      "src": "launch-1024x768.jpg",
       "sizes": "1024x768",
       "type": "image/jpeg"
     }
